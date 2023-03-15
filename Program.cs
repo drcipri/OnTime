@@ -1,4 +1,12 @@
+using Microsoft.EntityFrameworkCore;
+using OnTime.Models;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<OnTimeAppointmentsDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("OnTimeAppointmentsDbContext"));
+});
 
 builder.Services.AddControllersWithViews();//add mvc service
 
@@ -11,5 +19,7 @@ app.UseStaticFiles();  //serving static content from wwwroot
 app.MapRazorPages();// map razor pages
 
 app.MapDefaultControllerRoute(); //maping the home page
+
+SeedData.PopulateDatabase(app); //populate the database with data
 
 app.Run();
