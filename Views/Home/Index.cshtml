@@ -1,2 +1,12 @@
-﻿
-<h1>Developing OnTime app</h1>
+﻿@model IEnumerable<Appointment>
+
+
+<div class="container">
+    @foreach (var a in Model ?? Enumerable.Empty<Appointment>())
+    {
+        <partial name="AppointmentSummary" model="a"/> //render the Partial view from View/Shared folder
+    }
+}
+</div>
+
+

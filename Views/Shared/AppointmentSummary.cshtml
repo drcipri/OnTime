@@ -1,0 +1,48 @@
+﻿@model Appointment
+@{
+    string colorBand = "task__band-grey";
+}
+
+@switch (Model?.Classification.Name)
+{
+    case "Awaiting":
+        colorBand = "task__band-grey";
+        break;
+    case "Succesfull":
+        colorBand = "task__band-green";
+        break;
+    case "Missed":
+        colorBand = "task__band-yellow";
+        break;
+    case "Canceled":
+        colorBand = "task__band-green";
+        break;
+}
+<div class="task-container">
+    <div>
+        <span class="task__band-round @colorBand">
+            @Model?.Classification.Name
+        </span>
+    </div>
+    <section class="task__title">
+        <h3>Task/appointment on @Model?.DateTime</h3>
+    </section>
+    <section class="task__feature">
+        <label for="objective">
+            <span class="font-bold">Objective</span>
+        </label>
+        <p id="objective">@Model?.Objective</p>
+    </section>
+    <section class="task__feature">
+        <label for="reason">
+            <span class="font-bold">Reason</span>
+        </label>
+        <p id="reason">@Model?.Reason</p>
+    </section>
+    <section class="task__feature">
+        <label for="additionalInfo">
+            <span class="font-bold">Additional Info</span>
+        </label>
+        <p id="additionalInfo">@Model?.AdditionalInfo</p>
+    </section>
+</div>
