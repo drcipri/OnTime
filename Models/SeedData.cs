@@ -31,14 +31,14 @@ namespace OnTime.Models
                     new Appointment
                     {
                         Objective = "Cut the trees in fron of the house",
-                        DateTime = new DateTime(2023, 2, 25, 10, 0, 0),
+                        DateTime = new DateTime(2023, 4, 12, 10, 0, 0),
                         Reason = "The police said they are dangerous for other people",
                         Classification = context.Classifications.First(c => c.Id == 1)
                     },
                     new Appointment
                     {
                         Objective = "Football with the boys",
-                        DateTime = new DateTime(2023, 2, 25, 10, 0, 0),
+                        DateTime = new DateTime(2023, 4, 25, 10, 0, 0),
                         Classification = context.Classifications.First(c => c.Id == 1)
                     },
                     new Appointment
@@ -56,7 +56,45 @@ namespace OnTime.Models
                         Reason = "Its really important for my daughter that i will attend",
                         AdditionalInfo = "Don't forget to buy flowers and a gift.",
                         Classification = context.Classifications.First(c => c.Id == 1)
-                    }); 
+                    },
+                     new Appointment
+                     {
+                         Objective = "Jail appointment",
+                         DateTime = new DateTime(2023, 1, 20, 12, 0, 0),
+                         Reason = "Visit my dat",
+                         AdditionalInfo = "Dont stay more than 10 min",
+                         Classification = context.Classifications.First(c => c.Id == 1)
+                     },
+                    new Appointment
+                    {
+                        Objective = "Change oil to my car",
+                        DateTime = new DateTime(2023, 5, 25, 10, 0, 0),
+                        Reason = "Its over 10k km",
+                        Classification = context.Classifications.First(c => c.Id == 1)
+                    },
+                    new Appointment
+                    {
+                        Objective = "My cousin come over",
+                        DateTime = new DateTime(2023, 7, 11, 11, 0, 0),
+                        Classification = context.Classifications.First(c => c.Id == 1)
+                    },
+                    new Appointment
+                    {
+                        Objective = "Police statement",
+                        DateTime = new DateTime(2023, 8, 25, 10, 0, 0),
+                        Reason = "I had an accident",
+                        AdditionalInfo = "Dont forget the house papers",
+                        Classification = context.Classifications.First(c => c.Id == 1)
+                    },
+                    new Appointment
+                    {
+                        Objective = "Brain surgery",
+                        DateTime = new DateTime(2023, 10, 17, 7, 0, 0),
+                        Reason = "I'am to stupid",
+                        AdditionalInfo = "Bring a new brain",
+                        Classification = context.Classifications.First(c => c.Id == 1)
+                    }
+                    ); 
                 context.SaveChanges();
             }
 

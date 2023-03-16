@@ -13,7 +13,7 @@ builder.Services.AddControllersWithViews();//add mvc service
 
 builder.Services.AddRazorPages(); //add razor pages service
 
-builder.Services.AddScoped<IRepositoryAppointment, RepositoryAppointment>();//every object will get a new instance
+builder.Services.AddScoped<IRepositoryAppointment, RepositoryAppointment>();//each http request will get its own repository object
 
 var app = builder.Build();
 

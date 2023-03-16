@@ -2,6 +2,6 @@
 {
     public interface IRepositoryAppointment
     {
-
+        IQueryable<Appointment> Appointments { get; }
     }
 }

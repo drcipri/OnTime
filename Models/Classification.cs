@@ -7,6 +7,7 @@
     }
 
     //this class is the template for Classification
+    //can be used instead of writing magic words like 'Awaiting'
     public static class ClassificationTypes
     {
         public static string Awaiting { get; } = "Awaiting";

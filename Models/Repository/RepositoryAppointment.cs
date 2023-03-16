@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OnTime.Models.DatabaseConfigs;
+using System.Reflection.Metadata.Ecma335;
 
 namespace OnTime.Models.Repository
 {
@@ -11,5 +12,7 @@ namespace OnTime.Models.Repository
         {
             _context = context;
         }
+        public IQueryable<Appointment> Appointments => _context.Appointments;
+
     }
 }
