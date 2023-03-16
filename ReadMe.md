@@ -1,7 +1,10 @@
 _DESCRIPTION_
 The name of the project is 'OnTime'. This is an appointment-schedule app and the main goal is to store appointments or tasks into the database and notify you when you have a task or an appointment.
 
-_DEVELOPER GOALs SUMMARY_
+#NOTE#
+This project will be updated recursively!
+
+_DEVELOPER GOALs SUMMARY_(IGNORE THIS)
 Part 1 =>
 -In part one my Goal is to make the app perform CRUD operations using Entity Framework on Appointments.
 -I also want to implement a search bar for appointments.
