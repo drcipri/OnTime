@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using OnTime.Models;
+using OnTime.Models.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,8 @@ builder.Services.AddDbContext<OnTimeAppointmentsDbContext>(options =>
 builder.Services.AddControllersWithViews();//add mvc service
 
 builder.Services.AddRazorPages(); //add razor pages service
+
+builder.Services.AddScoped<IRepositoryAppointment, RepositoryAppointment>();//every object will get a new instance
 
 var app = builder.Build();
 
