@@ -1,12 +1,11 @@
-﻿@model IEnumerable<Appointment>
+﻿@model AppointmetnsListViewModel
 
 
 <div class="container">
-    @foreach (var a in Model ?? Enumerable.Empty<Appointment>())
+    @foreach (var a in Model.Appointments ?? Enumerable.Empty<Appointment>())
     {
         <partial name="AppointmentSummary" model="a"/> //render the Partial view from View/Shared folder
     }
-}
 </div>
 
 
