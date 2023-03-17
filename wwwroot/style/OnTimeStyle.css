@@ -95,7 +95,7 @@ header {
 
     .btn:hover {
         background: var(--color-link-primary_hover);
-    }     
+    }
 
 .btn-blue {
     background: var(--color-link-secondary);
@@ -131,12 +131,13 @@ header {
 .font-secondary {
     color: var(--color-font-secondary);
 }
-.font-bold{
+
+.font-bold {
     font-weight: bold;
 }
 
 /*Header*/
-.h1-header{
+.h1-header {
     margin-top: 0;
     margin-bottom: 0;
     margin-left: 2rem;
@@ -177,6 +178,7 @@ header {
         margin-bottom: 0;
         margin-top: 0;
     }
+
 .task__band-grey {
     background: rgb(151, 145, 145);
 }
@@ -198,4 +200,27 @@ header {
     margin: 0;
     padding: 0.5rem;
     font-size: small;
+}
+
+/*Pagination Links*/
+.pagination-container {
+    margin-top: 1.5rem;
+}
+
+.pagination__links {
+    border: 3px solid rgb(30, 180, 230);
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    color: white;
+    background: rgb(0, 170, 248);
+}
+
+    .pagination__links:hover {
+        background: #7bd1f3;
+    }
+
+.pagination__page-selected {
+    background: #7bd1f3;
 }
