@@ -21,10 +21,13 @@ namespace OnTime.Infrastructure
         public ViewContext? ViewContext { get; set; }
         public PaginationInfo? PaginationModel { get; set; }
         public string? PageAction { get; set; }
+        public string? PageClassification { get; set; }
 
         //style properties
         public string StyleA { get; set; }  = string.Empty;
         public string PageSelected { get; set; } = string.Empty;
+
+        
 
 
         public override void Process(TagHelperContext context, TagHelperOutput output)
@@ -37,7 +40,7 @@ namespace OnTime.Infrastructure
                 for(int i = 1; i <= PaginationModel.TotalPages; i++)
                 {
                     TagBuilder tag = new TagBuilder("a");
-                    tag.Attributes["href"] = urlHelper.Action(PageAction, new {appointmentsPage = i});
+                    tag.Attributes["href"] = urlHelper.Action(PageAction, new {appointmentsPage = i, classification = PageClassification});
 
                     tag.AddCssClass(StyleA);
                     tag.AddCssClass(i == PaginationModel.CurrentPage ? PageSelected : "");

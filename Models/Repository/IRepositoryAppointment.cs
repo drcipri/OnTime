@@ -3,5 +3,6 @@
     public interface IRepositoryAppointment
     {
         IQueryable<Appointment> Appointments { get; }
+        IEnumerable<Appointment> FilterAppointments(string? classification);
     }
 }

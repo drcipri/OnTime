@@ -14,13 +14,11 @@ namespace OnTime.Controllers
         {
             _repository = repository;
         }
-        public IActionResult Index(int appointmentsPage = 1)
+        public IActionResult Index(int appointmentsPage = 1, string? classification = null)
         {
             return View(new AppointmetnsListViewModel
             {
-                Appointments = _repository.Appointments.Where(c => c.Classification.Name == ClassificationTypes.Awaiting)
-                                                .Include(c => c.Classification)
-                                                .OrderBy(c => c.Id)
+                Appointments = _repository.FilterAppointments(classification ?? ClassificationTypes.Awaiting)
                                                 .Skip((appointmentsPage - 1) * PageSize)
                                                 .Take(PageSize)
                                                 .ToList(),
@@ -28,8 +26,9 @@ namespace OnTime.Controllers
                 {
                     CurrentPage = appointmentsPage,
                     ItemsPerPage = PageSize,
-                    TotalItems = _repository.Appointments.Where(c => c.Classification.Name == ClassificationTypes.Awaiting).Count()
-                }
+                    TotalItems = _repository.FilterAppointments(classification ?? ClassificationTypes.Awaiting).Count()
+                },
+                Classification = classification ?? ClassificationTypes.Awaiting
             });
         }
     }
