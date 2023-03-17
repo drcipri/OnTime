@@ -18,7 +18,7 @@ namespace OnTime.Controllers
         {
             return View(new AppointmentsListViewModel
             {
-                Appointments = _repository.FilterAppointments(classification ?? ClassificationTypes.Awaiting)
+                Appointments = _repository.FilterAppointments(String.IsNullOrEmpty(classification) ? ClassificationTypes.Awaiting : classification)
                                                 .Skip((appointmentsPage - 1) * PageSize)
                                                 .Take(PageSize)
                                                 .ToList(),
@@ -26,9 +26,9 @@ namespace OnTime.Controllers
                 {
                     CurrentPage = appointmentsPage,
                     ItemsPerPage = PageSize,
-                    TotalItems = _repository.FilterAppointments(classification ?? ClassificationTypes.Awaiting).Count()
+                    TotalItems = _repository.FilterAppointments(String.IsNullOrEmpty(classification) ? ClassificationTypes.Awaiting : classification).Count()
                 },
-                Classification = classification ?? ClassificationTypes.Awaiting
+                Classification = String.IsNullOrEmpty(classification) ? ClassificationTypes.Awaiting : classification 
             });
         }
     }

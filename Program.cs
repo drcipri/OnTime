@@ -21,6 +21,9 @@ app.UseStaticFiles();  //serving static content from wwwroot
 
 app.MapRazorPages();// map razor pages
 
+app.MapControllerRoute("page", "Page{appointmentsPage}", new { Controller = "Home", action = "Index", classification = ClassificationTypes.Awaiting });
+app.MapControllerRoute("classification", "{classification}", new { Controller = "Home", action = "Index", appointmentsPage = 1 });
+app.MapControllerRoute("pagination","{classification}/Page{appointmentsPage}", new {Controller = "Home", action = "Index"});
 app.MapDefaultControllerRoute(); //maping the home page
 
 SeedData.PopulateDatabase(app); //populate the database with data
