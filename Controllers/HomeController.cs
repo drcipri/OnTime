@@ -16,7 +16,7 @@ namespace OnTime.Controllers
         }
         public IActionResult Index(int appointmentsPage = 1, string? classification = null)
         {
-            return View(new AppointmetnsListViewModel
+            return View(new AppointmentsListViewModel
             {
                 Appointments = _repository.FilterAppointments(classification ?? ClassificationTypes.Awaiting)
                                                 .Skip((appointmentsPage - 1) * PageSize)

@@ -17,11 +17,11 @@ namespace OnTime.Infrastructure
         }
 
         [ViewContext]
-        [HtmlAttributeNotBound] 
+        [HtmlAttributeNotBound] //indicate that this property cannot be set with html attributes
         public ViewContext? ViewContext { get; set; }
-        public PaginationInfo? PaginationModel { get; set; }
+        public PaginationInfo? PaginationModel { get; set; }  
         public string? PageAction { get; set; }
-        public string? PageClassification { get; set; }
+        public string? PageClassification { get; set; } //with this property we can paginate through filtered appointments
 
         //style properties
         public string StyleA { get; set; }  = string.Empty;

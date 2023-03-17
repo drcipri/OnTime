@@ -1,5 +1,6 @@
 ﻿namespace OnTime.ViewModels
 {
+    //with this class i store information about pagination.
     public class PaginationInfo
     {
         public int ItemsPerPage { get; set; }

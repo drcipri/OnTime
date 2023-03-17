@@ -3,8 +3,8 @@
     --color-background-secondary: #bbe2f2;
     --color-font-primary: #050505;
     --color-font-secondary: #ffffff;
-    --color-link-primary: rgb(92, 243, 104);
-    --color-link-primary_hover: rgb(167, 250, 178);
+    --color-link-primary: rgb(255, 255, 255);
+    --color-link-primary_hover: rgb(214, 214, 214);
     --color-link-secondary: rgb(133, 223, 235);
     --color-link-secondary_hover: rgb(14, 190, 221);
     --color-body: #e0e0e0;
@@ -223,4 +223,40 @@ header {
 
 .pagination__page-selected {
     background: #7bd1f3;
+}
+
+/*NavigationBar*/
+.nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.nav__list {
+    display: flex;
+    flex-direction: column;
+    margin-right: 2rem;
+}
+
+.nav__item {
+    margin-top: 1rem;
+    margin-left: 2rem;
+}
+
+@media screen and (min-width: 650px) {
+    .nav {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .nav__list {
+        flex-direction: row;
+    }
+
+    .nav__item {
+        margin-top: 0;
+        margin-left: 0;
+        margin-right: 2rem;
+    }
 }
