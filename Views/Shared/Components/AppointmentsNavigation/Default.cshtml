@@ -1,10 +1,10 @@
-﻿@model IEnumerable<Classification>
+﻿@model IEnumerable<string>
 
 <div class="nav__list">
-    @foreach (var c in Model ?? Enumerable.Empty<Classification>())
+    @foreach (var c in Model ?? Enumerable.Empty<string>())
     {
-        <a  asp-action="Index" asp-controller="Home" asp-route-classification="@c.Name" asp-route-appointmentsPage="1"
-            class="link-primary nav__item">@c.Name</a>
+        <a  asp-action="Index" asp-controller="Home" asp-route-classification="@c" asp-route-appointmentsPage="1"
+            class="link-primary nav__item">@c</a>
     }
 </div>
 

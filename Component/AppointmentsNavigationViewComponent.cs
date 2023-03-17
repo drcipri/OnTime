@@ -12,7 +12,7 @@ namespace OnTime.Component
 
         public IViewComponentResult Invoke()
         {
-            return View(_repository.GetAll());
+            return View(_repository.GetAll().Select(c => c.Name));
         }
     }
 }

@@ -29,7 +29,7 @@ namespace OnTime.Infrastructure
 
         
 
-
+        //this method generate the pagination links
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             if(ViewContext != null && PaginationModel != null)
