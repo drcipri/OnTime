@@ -7,7 +7,6 @@
     --color-link-primary_hover: rgb(214, 214, 214);
     --color-link-secondary: rgb(74, 255, 83);
     --color-link-secondary_hover: rgb(203, 250, 184);
-    ;
     --color-body: #e0e0e0;
 }
 
@@ -185,11 +184,11 @@ header {
 }
 
 .task__band-green {
-    background: rgb(98, 243, 41);
+    background-color: rgb(58, 202, 2);
 }
 
 .task__band-yellow {
-    background: rgb(229, 243, 30);
+    background-color: rgb(195, 209, 0);
 }
 
 .task__band-red {
@@ -202,6 +201,14 @@ header {
     padding: 0.5rem;
     font-size: small;
 }
+.task__info {
+    font-size: small;
+    background-color: blueviolet;
+    padding: 0.4rem;
+    border-radius: 10px;
+    margin-left: 3rem;
+}
+
 
 /*Pagination Links*/
 .pagination-container {
