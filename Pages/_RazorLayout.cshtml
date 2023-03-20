@@ -5,12 +5,39 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./style/style.css" />
+    <link href="/style/OnTimeStyle.css" rel="stylesheet" />
     <title>OnTime</title>
 </head>
 <body>
-    <div>
+    <header>
+        <div class="nav">
+            <h2 class="h1-header">OnTime</h2>
+            <vc:appointments-navigation />
+        </div>
+    </header>
+    <main>
         @RenderBody()
-    </div>
+    </main>
+    <footer>
+        <div class="ft-flex font-secondary">
+            <div class="ft-grid">
+                <div class="ft__containers">
+                    <h3 class="ft__item">OnTime</h3>
+                    <p>
+                        This is an appointment-schedule app and the main goal is to store
+                        appointments or tasks into the database and notify you when you have
+                        a task or an appointment.
+                    </p>
+                </div>
+                <div class="ft__containers">
+                    <h3 class="ft__item">Find this project on</h3>
+                    <a class="link-secondary" href="https://github.com/drcipri/OnTime">Github</a>
+                </div>
+            </div>
+            <div class="ft__bottom">
+                <p>2023</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

@@ -1,13 +1,19 @@
 ﻿:root {
     --color-background-primary: #34b7eb;
     --color-background-secondary: #bbe2f2;
+
     --color-font-primary: #050505;
     --color-font-secondary: #ffffff;
+
     --color-link-primary: rgb(255, 255, 255);
     --color-link-primary_hover: rgb(214, 214, 214);
     --color-link-secondary: rgb(74, 255, 83);
     --color-link-secondary_hover: rgb(203, 250, 184);
+
     --color-body: #e0e0e0;
+
+    --color-btn-primary: rgb(24, 151, 255);
+    --color-btn-primary_hover: rgb(138, 197, 245);
 }
 
 html {
@@ -93,13 +99,22 @@ header {
     transition: background 0.15s;
 }
 
-    .btn:hover {
-        background: var(--color-link-primary_hover);
-    }
 
 .btn-blue {
-    background: var(--color-link-secondary);
+    background: var(--color-btn-primary);
 }
+    .btn-blue:hover {
+        background: var(--color-btn-primary_hover);
+    }
+
+
+.btn-container{
+    margin-top: 2rem;
+}
+.btn-submit {
+    margin-top: 1.5rem;
+}
+
 
 /*links*/
 .link-primary {
@@ -134,6 +149,9 @@ header {
 
 .font-bold {
     font-weight: bold;
+}
+.font-danger{
+    color: red;
 }
 
 /*Header*/
@@ -172,6 +190,7 @@ header {
 
 .task__title {
     border-bottom: 2px solid lightgray;
+    margin-top: 0.5rem;
 }
 
     .task__title h3 {
@@ -302,4 +321,73 @@ header {
     .ft-grid {
         grid-template-columns: 1fr 1fr;
     }
+}
+
+/*add appointment*/
+.add-area {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-input {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border: 3px solid var(--color-background-primary);
+    border-radius: 5px;
+    outline: 0;
+    font-size: large;
+}
+.add-btn {
+    margin-left: 3rem;
+}
+
+    .add-input:focus {
+        transition: box-shadow 0.13s;
+        box-shadow: 0px 0px 4px 2px var(--color-background-primary);
+    }
+
+.add-label {
+    font-weight: 500;
+}
+
+.add-area h3 {
+    border-bottom: 3px solid var(--color-background-primary);
+}
+
+/*Date time picker*/
+.add-dateTime {
+    width: 250px;
+    outline: 0;
+    border: none;
+    background-color: var(--color-background-primary);
+    color: white;
+    border-radius: 5px;
+    transition: box-shadow 0.13s;
+}
+
+    .add-dateTime:focus {
+        box-shadow: 0px 0px 4px 2px rgb(47, 255, 210);
+    }
+
+input::-webkit-datetime-edit {
+    padding: 0.2rem;
+    font-size: 1.7rem;
+    border-radius: 5px;
+}
+
+input::-webkit-datetime-edit-text {
+    color: red;
+    padding: 0 0.3rem;
+}
+
+input::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+}
+
+input::-webkit-datetime-edit-month-field {
+    color: white
+}
+
+input::-webkit-datetime-edit-year-field {
+    color: white;
 }

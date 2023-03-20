@@ -14,6 +14,12 @@ namespace OnTime.Models.Repository
         }
         public IQueryable<Appointment> Appointments => _context.Appointments;
 
+        public void Add(Appointment appointment)
+        {
+            _context.Add(appointment);
+            _context.SaveChanges();
+        }
+
 
         /// <summary>
         /// Filter Appointments table.This method eager load all related objects!
