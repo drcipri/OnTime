@@ -22,7 +22,7 @@ app.UseStaticFiles();  //serving static content from wwwroot
 app.MapRazorPages();// map razor pages
 
 app.MapControllerRoute("classification", "{classification}", new { Controller = "Home", action = "Index", appointmentsPage = 1 });
-app.MapControllerRoute("pagination","{classification}/Page{appointmentsPage}", new {Controller = "Home", action = "Index"});
+app.MapControllerRoute("pagination","{classification}/Page{appointmentsPage:int}", new {Controller = "Home", action = "Index"}); // :int -> is a constraint 
 app.MapDefaultControllerRoute(); //maping the home page
 
 SeedData.PopulateDatabase(app); //populate the database with data

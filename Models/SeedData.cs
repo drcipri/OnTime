@@ -27,7 +27,7 @@ namespace OnTime.Models
                         PostDateTime = DateTime.Now,
                         Reason = "I broke my front teets",
                         AdditionalInfo = "Doctor changed location to downtown",
-                        Classification = context.Classifications.First(c => c.Id == 1)
+                        ClassificationId = 1
                     },
                     new Appointment
                     {
@@ -35,14 +35,14 @@ namespace OnTime.Models
                         AppointmentDateTime = new DateTime(2023, 4, 12, 10, 0, 0),
                         PostDateTime = DateTime.Now,
                         Reason = "The police said they are dangerous for other people",
-                        Classification = context.Classifications.First(c => c.Id == 1)
+                        ClassificationId = 1
                     },
                     new Appointment
                     {
                         Objective = "Football with the boys",
                         AppointmentDateTime = new DateTime(2023, 4, 25, 10, 0, 0),
                         PostDateTime = DateTime.Now,
-                        Classification = context.Classifications.First(c => c.Id == 1)
+                        ClassificationId = 1
                     },
                     new Appointment
                     {
@@ -51,7 +51,7 @@ namespace OnTime.Models
                         PostDateTime = DateTime.Now,
                         Reason = "Get credit",
                         AdditionalInfo = "Dont forget the house papers",
-                        Classification = context.Classifications.First(c => c.Id == 1)
+                        ClassificationId = 1
                     },
                     new Appointment
                     {
@@ -60,7 +60,7 @@ namespace OnTime.Models
                         PostDateTime = DateTime.Now,
                         Reason = "Its really important for my daughter that i will attend",
                         AdditionalInfo = "Don't forget to buy flowers and a gift.",
-                        Classification = context.Classifications.First(c => c.Id == 1)
+                        ClassificationId = 1
                     },
                      new Appointment
                      {
@@ -69,7 +69,7 @@ namespace OnTime.Models
                          PostDateTime = DateTime.Now,
                          Reason = "Visit my dat",
                          AdditionalInfo = "Dont stay more than 10 min",
-                         Classification = context.Classifications.First(c => c.Id == 1)
+                         ClassificationId = 1
                      },
                     new Appointment
                     {
@@ -77,14 +77,14 @@ namespace OnTime.Models
                         AppointmentDateTime = new DateTime(2023, 5, 25, 10, 0, 0),
                         PostDateTime = DateTime.Now,
                         Reason = "Its over 10k km",
-                        Classification = context.Classifications.First(c => c.Id == 1)
+                        ClassificationId = 1
                     },
                     new Appointment
                     {
                         Objective = "My cousin come over",
                         AppointmentDateTime = new DateTime(2023, 7, 11, 11, 0, 0),
                         PostDateTime = DateTime.Now,
-                        Classification = context.Classifications.First(c => c.Id == 1)
+                        ClassificationId = 1
                     },
                     new Appointment
                     {
@@ -93,7 +93,7 @@ namespace OnTime.Models
                         PostDateTime = DateTime.Now,
                         Reason = "I had an accident",
                         AdditionalInfo = "Dont forget the house papers",
-                        Classification = context.Classifications.First(c => c.Id == 1)
+                        ClassificationId = 1
                     },
                     new Appointment
                     {
@@ -102,7 +102,7 @@ namespace OnTime.Models
                         PostDateTime = DateTime.Now,
                         Reason = "I'am to stupid",
                         AdditionalInfo = "Bring a new brain",
-                        Classification = context.Classifications.First(c => c.Id == 1)
+                        ClassificationId = 1
                     },
                      new Appointment
                      {
@@ -111,7 +111,7 @@ namespace OnTime.Models
                          PostDateTime = DateTime.Now,
                          Reason = "Grandma died",
                          AdditionalInfo = "Buy Flowers",
-                         Classification = context.Classifications.First(c => c.Id == 2)
+                         ClassificationId = 2
                      },
                     new Appointment
                     {
@@ -119,14 +119,14 @@ namespace OnTime.Models
                         AppointmentDateTime = new DateTime(2023, 4, 12, 10, 0, 0),
                         PostDateTime = DateTime.Now,
                         Reason = "Yearly pigs day",
-                        Classification = context.Classifications.First(c => c.Id == 2)
+                        ClassificationId = 2
                     },
                     new Appointment
                     {
                         Objective = "Cinema Movie",
                         AppointmentDateTime = new DateTime(2023, 4, 25, 10, 0, 0),
                         PostDateTime = DateTime.Now,
-                        Classification = context.Classifications.First(c => c.Id == 2)
+                        ClassificationId = 2
                     },
                     new Appointment
                     {
@@ -135,7 +135,7 @@ namespace OnTime.Models
                         PostDateTime = DateTime.Now,
                         Reason = "She want money",
                         AdditionalInfo = "Dump her",
-                        Classification = context.Classifications.First(c => c.Id == 2)
+                        ClassificationId = 2
                     },
                     new Appointment
                     {
@@ -144,7 +144,7 @@ namespace OnTime.Models
                         PostDateTime = DateTime.Now,
                         Reason = "He must give me the salary",
                         AdditionalInfo = "I have to ask for a raise",
-                        Classification = context.Classifications.First(c => c.Id == 2)
+                        ClassificationId = 2
                     },
                      new Appointment
                      {
@@ -153,7 +153,7 @@ namespace OnTime.Models
                          PostDateTime = DateTime.Now,
                          Reason = "I have to lose weight",
                          AdditionalInfo = "Bring a mcdonald menu",
-                         Classification = context.Classifications.First(c => c.Id == 3)
+                         ClassificationId = 3
                      },
                     new Appointment
                     {
@@ -161,14 +161,14 @@ namespace OnTime.Models
                         AppointmentDateTime = new DateTime(2023, 4, 12, 10, 0, 0),
                         PostDateTime = DateTime.Now,
                         Reason = "I am over 10.000km",
-                        Classification = context.Classifications.First(c => c.Id == 3)
+                        ClassificationId = 3
                     },
                     new Appointment
                     {
                         Objective = "Playing with my daughter",
                         AppointmentDateTime = new DateTime(2023, 4, 25, 10, 0, 0),
                         PostDateTime = DateTime.Now,
-                        Classification = context.Classifications.First(c => c.Id == 3)
+                        ClassificationId = 3
                     },
                     new Appointment
                     {
@@ -177,7 +177,7 @@ namespace OnTime.Models
                         PostDateTime = DateTime.Now,
                         Reason = "Get caught stealing",
                         AdditionalInfo = "I have to bring my lawyer",
-                        Classification = context.Classifications.First(c => c.Id == 3)
+                        ClassificationId = 3
                     },
                     new Appointment
                     {
@@ -186,7 +186,7 @@ namespace OnTime.Models
                         PostDateTime = DateTime.Now,
                         Reason = "flying to vegas",
                         AdditionalInfo = "Dont spend all the mony",
-                        Classification = context.Classifications.First(c => c.Id == 3)
+                        ClassificationId = 3
                     },
                      new Appointment
                      {
@@ -195,7 +195,7 @@ namespace OnTime.Models
                          PostDateTime = DateTime.Now,
                          Reason = "She is hot",
                          AdditionalInfo = "Bring the whole salary",
-                         Classification = context.Classifications.First(c => c.Id == 3)
+                         ClassificationId = 3
                      },
                     new Appointment
                     {
@@ -203,14 +203,14 @@ namespace OnTime.Models
                         AppointmentDateTime = new DateTime(2023, 5, 25, 10, 0, 0),
                         PostDateTime = DateTime.Now,
                         Reason = "My favorite teams are playing",
-                        Classification = context.Classifications.First(c => c.Id == 3)
+                        ClassificationId = 3
                     },
                     new Appointment
                     {
                         Objective = "Neighbours comes to my place",
                         AppointmentDateTime = new DateTime(2023, 7, 11, 11, 0, 0),
                         PostDateTime = DateTime.Now,
-                        Classification = context.Classifications.First(c => c.Id == 3)
+                        ClassificationId = 3
                     },
                     new Appointment
                     {
@@ -219,7 +219,7 @@ namespace OnTime.Models
                         PostDateTime = DateTime.Now,
                         Reason = "He pissed me off",
                         AdditionalInfo = "Bring gasoline",
-                        Classification = context.Classifications.First(c => c.Id == 3)
+                        ClassificationId = 3
                     },
                     new Appointment
                     {
@@ -228,7 +228,7 @@ namespace OnTime.Models
                         PostDateTime = DateTime.Now,
                         Reason = "Test a car",
                         AdditionalInfo = "Bring the papers",
-                        Classification = context.Classifications.First(c => c.Id == 3)
+                        ClassificationId = 3
                     },
                      new Appointment
                      {
@@ -236,14 +236,14 @@ namespace OnTime.Models
                          AppointmentDateTime = new DateTime(2023, 5, 25, 10, 0, 0),
                          PostDateTime = DateTime.Now,
                          Reason = "She said i dont take her out very often",
-                         Classification = context.Classifications.First(c => c.Id == 4)
+                         ClassificationId = 4
                      },
                     new Appointment
                     {
                         Objective = "Learn JavaScript",
                         AppointmentDateTime = new DateTime(2023, 7, 11, 11, 0, 0),
                         PostDateTime = DateTime.Now,
-                        Classification = context.Classifications.First(c => c.Id == 4)
+                        ClassificationId = 4
                     },
                     new Appointment
                     {
@@ -252,7 +252,7 @@ namespace OnTime.Models
                         PostDateTime = DateTime.Now,
                         Reason = "Its to soon",
                         AdditionalInfo = "I will learn it in the future",
-                        Classification = context.Classifications.First(c => c.Id == 4)
+                        ClassificationId = 4
                     },
                     new Appointment
                     {
@@ -261,7 +261,7 @@ namespace OnTime.Models
                         PostDateTime = DateTime.Now,
                         Reason = "Its to soon",
                         AdditionalInfo = "I have to master MVC and RazorPages FIRST",
-                        Classification = context.Classifications.First(c => c.Id == 4)
+                        ClassificationId = 4
                     }
                     ); 
                 context.SaveChanges();

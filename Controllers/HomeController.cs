@@ -20,7 +20,7 @@ namespace OnTime.Controllers
             return View(new AppointmentsListViewModel
             {
                 Appointments = _repository.FilterAppointments(String.IsNullOrEmpty(classification) ? ClassificationTypes.Awaiting : classification)
-                                                .OrderByDescending(c => c.AddedDateTime) //get data in desceding order by posted date. This way the last one posted will be the first to show
+                                                .OrderByDescending(c => c.PostDateTime) //get data in desceding order by posted date. This way the last one posted will be the first to show
                                                 .Skip((appointmentsPage - 1) * PageSize)
                                                 .Take(PageSize)
                                                 .ToList(),

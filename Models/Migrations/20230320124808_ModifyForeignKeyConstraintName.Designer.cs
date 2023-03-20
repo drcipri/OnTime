@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OnTime.Models;
 
@@ -11,9 +12,10 @@ using OnTime.Models;
 namespace OnTime.Models.Migrations
 {
     [DbContext(typeof(OnTimeAppointmentsDbContext))]
-    partial class OnTimeAppointmentsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230320124808_ModifyForeignKeyConstraintName")]
+    partial class ModifyForeignKeyConstraintName
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
