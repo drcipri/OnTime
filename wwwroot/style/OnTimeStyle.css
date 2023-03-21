@@ -114,6 +114,13 @@ header {
 .btn-submit {
     margin-top: 1.5rem;
 }
+.btn-red {
+    background: red;
+}
+
+    .btn-red:hover {
+        background: rgb(241, 115, 115);
+    }
 
 
 /*links*/
@@ -181,15 +188,18 @@ header {
         margin-bottom: 0;
         font-size: medium;
     }
-
+.task__info-container{
+    display: flex;
+    flex-direction: column;
+}
 .task__feature {
-    border: 2px solid lightgray;
+    border: 2px solid #81cf7c;
     padding: 0.5rem;
     overflow-wrap: break-word;
 }
 
 .task__title {
-    border-bottom: 2px solid lightgray;
+    border-bottom: 2px solid #81cf7c;
     margin-top: 0.5rem;
 }
 
@@ -225,8 +235,25 @@ header {
     background-color: blueviolet;
     padding: 0.4rem;
     border-radius: 10px;
-    margin-left: 3rem;
 }
+.task__options {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+@media screen and (min-width: 650px) {
+    .task__info-container {
+        flex-direction: row;
+    }
+    .task__info {
+        font-size: small;
+        background-color: blueviolet;
+        padding: 0.4rem;
+        border-radius: 10px;
+        margin-left: 3rem;
+    }
+}
+
 
 
 /*Pagination Links*/

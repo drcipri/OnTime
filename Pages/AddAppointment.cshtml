@@ -7,9 +7,9 @@
       <form class="add-area" method="post" >
         <h3>Add Task/Appointment</h3>
         <label class="add-label" for="objective">Objective</label>
-        <textarea id="objective" class="add-input"  rows="2" asp-for="Appointment.Objective"></textarea>
+        <textarea id="objective" class="add-input"  rows="2" asp-for="AddAppointment.Objective"></textarea>
         <label class="add-label" for="reason">Reason</label>
-        <textarea id="reason" class="add-input" rows="2" asp-for="Appointment.Reason"></textarea>
+        <textarea id="reason" class="add-input" rows="2" asp-for="AddAppointment.Reason"></textarea>
         <label class="add-label" for="AdditionalInfo"
           >Additional Information</label
         >
@@ -17,7 +17,7 @@
           id="AdditionalInfo"
           class="add-input"
           rows="2"
-          asp-for="Appointment.AdditionalInfo"
+          asp-for="AddAppointment.AdditionalInfo"
         ></textarea>
         <label for="meeting-time"
           >Choose a time for your task/appointment</label
@@ -28,7 +28,7 @@
           id="meeting-time"
                min="@DateTime.Now.ToString("yyyy-MM-ddThh:mm")"
                max="@DateTime.Now.AddYears(50).ToString("yyyy-MM-ddThh:mm")"
-          asp-for="Appointment.AppointmentDateTime"
+          asp-for="AddAppointment.AppointmentDateTime"
         />
         <button class="btn btn-blue btn-submit" type="submit">Submit</button>
       </form>

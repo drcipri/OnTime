@@ -19,6 +19,16 @@ namespace OnTime.Models.Repository
             _context.Add(appointment);
             _context.SaveChanges();
         }
+        public void RemoveById(int id)
+        {
+            Appointment? apToRemove = _context.Appointments.FirstOrDefault(c => c.Id == id);
+            if (apToRemove != null)
+            {
+                _context.Remove(apToRemove);
+                _context.SaveChanges();
+            }
+
+        }
 
 
         /// <summary>
@@ -35,5 +45,7 @@ namespace OnTime.Models.Repository
                                                   .Include(c => c.Classification)
                                                   .OrderBy(c => c.Id);
         }
+
+      
     }
 }

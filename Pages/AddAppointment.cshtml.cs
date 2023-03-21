@@ -8,7 +8,9 @@ namespace OnTime.Pages
     {
         private readonly IRepositoryAppointment _repository;
         [BindProperty]
-        public Appointment Appointment { get; set; } = new();
+        public Appointment AddAppointment { get; set; } = new();
+        [BindProperty]
+        public Appointment? RemoveAppointment { get; set; }
         public AddAppointmentModel(IRepositoryAppointment repository)
         {
             _repository = repository;
@@ -19,18 +21,24 @@ namespace OnTime.Pages
 
         public IActionResult OnPost()
         {
-            Appointment.PostDateTime = DateTime.Now;
-            Appointment.ClassificationId = 1;
+            AddAppointment.PostDateTime = DateTime.Now;
+            AddAppointment.ClassificationId = 1;
             
             if(ModelState.IsValid)
             {
-                _repository.Add(Appointment);
+                _repository.Add(AddAppointment);
                 return RedirectToRoute(new { Controller = "Home", action = "Index", classification = ClassificationTypes.Awaiting });
             }
             else
             {
                 return Page();
             }
+        }
+        public IActionResult OnPostRemove(int appointmentId, string urlClassification)
+        {
+            _repository.RemoveById(appointmentId);
+            return RedirectToRoute(new  { Controller = "Home", action = "Index", classification = urlClassification });
+
         }
     }
 }

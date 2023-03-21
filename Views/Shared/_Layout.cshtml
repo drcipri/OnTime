@@ -44,4 +44,18 @@
         </div>
     </footer>
 </body>
+<script>
+    function confirmDelete() {
+        var result = confirm("Are you sure ?");
+        if (!result) {
+            event.preventDefault(); // prevent the default action of the button click event
+        }
+    }
+
+   var deleteButtons =  document.querySelectorAll(".deleteButton");
+    deleteButtons.forEach(function (button) {
+        button.addEventListener("click", confirmDelete);
+    });
+   
+</script>
 </html>
