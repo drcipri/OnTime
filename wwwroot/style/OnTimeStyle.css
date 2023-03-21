@@ -418,3 +418,46 @@ input::-webkit-datetime-edit-month-field {
 input::-webkit-datetime-edit-year-field {
     color: white;
 }
+
+/*drop down*/
+.drop-down {
+    position: relative;
+    display: inline-block;
+}
+
+.drop-down__content {
+    display: none;
+    position: absolute;
+    right: 5rem;
+    bottom: 3rem;
+    z-index: 2;
+    width: 100%;
+    min-width: 140px;
+    overflow: auto;
+    box-shadow: 1px 1px 10px var(--color-background-primary);
+    background: var(--color-background-primary);
+    border-radius: 10px;
+}
+
+.drop-down:hover .drop-down__content {
+    display: block;
+}
+
+.drop-down__list {
+    padding: 2rem;
+    padding-top: 0;
+    list-style: none;
+}
+
+.drop-button {
+    cursor: alias;
+}
+
+.drop__down-button {
+    background: none;
+    margin: 0;
+}
+
+    .drop__down-button:hover {
+        color: silver;
+    }

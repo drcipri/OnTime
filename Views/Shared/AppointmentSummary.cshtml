@@ -59,5 +59,13 @@
             <input type="hidden" name="urlClassification" value="@Model?.Classification?.Name" />
             <button type="submit" class="btn btn-red deleteButton">Delete</button>
         </form>
+        <div class="btn btn-blue drop-button drop-down">
+            Mark As
+            <div class="drop-down__content">
+                <ul class="list drop-down__list">
+                    <vc:appointment-classification appointment-id="@Model!.Id" current-classification="@Model?.Classification?.Name"/>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>

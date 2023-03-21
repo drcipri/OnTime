@@ -29,6 +29,20 @@ namespace OnTime.Models.Repository
             }
 
         }
+        /// <summary>
+        /// Change classification if the appointment is found
+        /// </summary>
+        /// <param name="id">Appointment id</param>
+        /// <param name="classificationName">Classification Name</param>
+        public void MarkAppointment(int id, string classificationName)
+        {
+            Appointment? apToRemove = _context.Appointments.FirstOrDefault(c => c.Id == id);
+            if(apToRemove != null)
+            {
+                apToRemove.ClassificationId = _context.Classifications.First(c => c.Name == classificationName).Id;
+                _context.SaveChanges();
+            }
+        }
 
 
         /// <summary>
@@ -46,6 +60,6 @@ namespace OnTime.Models.Repository
                                                   .OrderBy(c => c.Id);
         }
 
-      
+       
     }
 }

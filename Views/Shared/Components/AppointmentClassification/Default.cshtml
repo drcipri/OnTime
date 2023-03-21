@@ -1,0 +1,18 @@
+﻿@model MarkAppointmentClassification
+
+
+@foreach (var c in Model.Classifications ?? Enumerable.Empty<string>())
+{
+    if(c != Model.CurrentClassification)
+    {
+        <li>
+            <form asp-page="/EditAppointment" asp-page-handler="MarkAs" method="post">
+                <input type="hidden" name="classificationName" value="@c" />
+                <input type="hidden" name="appointmentId" value="@Model.AppointmentId" />
+                <button type="submit" class="btn drop__down-button">@c</button>
+            </form>
+        </li>
+    }
+    
+  
+}
