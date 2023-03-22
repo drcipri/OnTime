@@ -24,7 +24,7 @@ namespace OnTime.Pages
             
             if(ModelState.IsValid)
             {
-                _repository.Add(CurrentAppointment);
+                _repository.AddAppointment(CurrentAppointment);
                 return RedirectToRoute(new { Controller = "Home", action = "Index", classification = ClassificationTypes.Awaiting });
             }
             else

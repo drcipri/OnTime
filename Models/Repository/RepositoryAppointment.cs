@@ -14,7 +14,7 @@ namespace OnTime.Models.Repository
         }
         public IQueryable<Appointment> Appointments => _context.Appointments;
 
-        public void Add(Appointment appointment)
+        public void AddAppointment(Appointment appointment)
         {
             _context.Add(appointment);
             _context.SaveChanges();
@@ -28,6 +28,15 @@ namespace OnTime.Models.Repository
                 _context.SaveChanges();
             }
 
+        }
+        public void UpdateAppointment(Appointment appointment)
+        {
+            _context.Appointments.Update(appointment);
+            _context.SaveChanges();
+        }
+        public Appointment? GetAppointment(int id)
+        {
+            return _context.Appointments.Include(c => c.Classification).FirstOrDefault(c => c.Id == id);
         }
         /// <summary>
         /// Change classification if the appointment is found
@@ -60,6 +69,6 @@ namespace OnTime.Models.Repository
                                                   .OrderBy(c => c.Id);
         }
 
-       
+        
     }
 }

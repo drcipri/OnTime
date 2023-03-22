@@ -25,6 +25,7 @@
         <input
           class="add-dateTime"
           type="datetime-local"
+          value="@DateTime.Now.ToString("yyyy-MM-ddThh:mm")"
           id="meeting-time"
                min="@DateTime.Now.ToString("yyyy-MM-ddThh:mm")"
                max="@DateTime.Now.AddYears(50).ToString("yyyy-MM-ddThh:mm")"

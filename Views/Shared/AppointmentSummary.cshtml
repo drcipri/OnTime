@@ -21,16 +21,20 @@
 }
 <div class="task-container">
     <div class="task__info-container">
-        <div>
-            <span class="task__band-round @colorBand font-secondary">
-                @Model?.Classification?.Name
-            </span>
+        <div class="post__info">
+            <div>
+                <span class="task__band-round @colorBand font-secondary">
+                    @Model?.Classification?.Name
+                </span>
+            </div>
+            <div>
+                <span class="task__info font-secondary">
+                    Posted on: @Model?.PostDateTime
+                </span>
+            </div>
         </div>
-        <div>
-            <span class="task__info font-secondary">
-                Posted on: @Model?.PostDateTime
-            </span>
-        </div>
+        
+        <a asp-page="/EditAppointment" asp-route-appointmentId="@Model?.Id" class=" task__edit"><i class="fa-solid fa-pen-to-square"></i></a>
     </div>
     <section class="task__title">
         <h3>Task/appointment on @Model?.AppointmentDateTime</h3>

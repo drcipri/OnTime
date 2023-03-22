@@ -189,8 +189,9 @@ header {
         font-size: medium;
     }
 .task__info-container{
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1.7fr 0.3fr;
 }
 .task__feature {
     border: 2px solid #81cf7c;
@@ -241,8 +242,20 @@ header {
     justify-content: flex-end;
     gap: 1rem;
 }
+.task__edit {
+    margin-left: auto;
+    color: blueviolet;
+}
+    .task__edit:focus {
+        color: rgb(159, 127, 189);
+    }
+
 @media screen and (min-width: 650px) {
     .task__info-container {
+        grid-template-columns: 1fr 1fr;
+    }
+    .post__info {
+        display: flex;
         flex-direction: row;
     }
     .task__info {
