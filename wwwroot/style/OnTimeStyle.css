@@ -441,7 +441,7 @@ input::-webkit-datetime-edit-year-field {
 .drop-down__content {
     display: none;
     position: absolute;
-    right: 5rem;
+    right: 3rem;
     bottom: 3rem;
     z-index: 2;
     width: 100%;

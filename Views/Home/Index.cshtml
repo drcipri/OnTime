@@ -2,14 +2,23 @@
 
 
 <div class="container">
-    @foreach (var a in Model.Appointments ?? Enumerable.Empty<Appointment>())
+    @if(Model.Appointments.Count() != 0)
     {
-        <partial name="AppointmentSummary" model="a"/> //render the Partial view from View/Shared folder
+        @foreach (var a in Model.Appointments)
+        {
+            <partial name="AppointmentSummary" model="a" />
+            //render the Partial view from View/Shared folder
+        }
+        <div class="pagination-container" pagination-model="@Model?.PaginationInfo" page-action="Index"
+             page-classification="@Model?.Classification"
+             style-a="pagination__links"
+             page-selected="pagination__page-selected">
+        </div>
     }
-    <div class="pagination-container" pagination-model="@Model?.PaginationInfo" page-action="Index" 
-         page-classification="@Model?.Classification"
-         style-a="pagination__links"
-         page-selected="pagination__page-selected"></div>
+    else
+    {
+         <h2>You don't have any @Model?.Classification appointments/tasks :( </h2>
+    }
 </div>
 
 
