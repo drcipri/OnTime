@@ -14,7 +14,7 @@
         /// <returns></returns>
         public IEnumerable<Classification> GetAll()
         {
-            return _context.Classifications.Distinct().OrderBy(x => x.Id).ToList();
+            return _context.Classifications.Distinct().OrderBy(x => x.Id).AsEnumerable();
         }
     }
 }

@@ -299,6 +299,11 @@ header {
     justify-content: space-between;
     align-items: flex-start;
 }
+.nav-links {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
 
 .nav__list {
     display: flex;
@@ -474,3 +479,39 @@ input::-webkit-datetime-edit-year-field {
     .drop__down-button:hover {
         color: silver;
     }
+
+/*tables*/
+.table-container {
+    margin: auto;
+    margin-bottom: 3rem;
+    margin-top: 3rem;
+    max-width: 1250px;
+    border: 2px solid grey;
+    overflow: auto;
+    font-size: 1.5rem;
+}
+    .table-container table {
+        border-collapse: collapse;
+        margin: auto;
+        display: block;
+        height: 600px;
+    }
+    .table-container td, th {
+        border: 1px solid #a7a6a6;
+        text-align: left;
+        padding: 0.8rem;
+        overflow:auto;
+    }
+tr:nth-child(even) {
+    background-color: #c5c5c5;
+}
+.table-container thead {
+    top: 0;
+}
+@media screen and (min-width: 650px) {
+    .table-container {
+        font-size: 1rem;
+    }
+}
+
+

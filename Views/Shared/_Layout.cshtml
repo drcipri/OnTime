@@ -17,8 +17,9 @@
     </header>
     <main>
         <div>
-            <nav class="nav btn-container">
+            <nav class="nav-links btn-container">
                 <a class="btn btn-blue add-btn" asp-page="/AddAppointment">Add Task/Appointment</a>
+                <a class="btn btn-red" asp-controller="History" asp-action="AppointmentsHistory">History</a>
             </nav>
         </div>
         @RenderBody()

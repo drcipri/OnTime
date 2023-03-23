@@ -1,0 +1,37 @@
+﻿@model IEnumerable<AppointmentAudit>
+
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>ActionDate</th>
+                <th>ActionType</th>
+                <th>AppointmentDateTime</th>
+                <th>PostDateTime</th>
+                <th>Objective</th>
+                <th>Reason</th>
+                <th>AdditionalInfo</th>
+                <th>Classification</th>
+                <th>AppointmentId</th>
+            </tr>
+        </thead>
+        <tbody>
+             @foreach(var record in Model)
+            {
+                <tr>
+                    <td>@record.Id</td>
+                    <td>@record.ActionDate</td>
+                    <td>@record.ActionType</td>
+                    <td>@record.AppointmentDateTime</td>
+                    <td>@record.PostDateTime</td>
+                    <td>@record.Objective</td>
+                    <td>@record.Reason</td>
+                    <td>@record.AdditionalInfo</td>
+                    <td>@record.Classification</td>
+                    <td>@record.AppointmentId</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
