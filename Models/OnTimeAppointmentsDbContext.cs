@@ -7,6 +7,7 @@ namespace OnTime.Models
     {
         public DbSet<Appointment> Appointments { get; set; }
         public DbSet<Classification> Classifications { get; set; }
+        public DbSet<AppointmentAudit> AppointmentsAudit { get; set; }  
         public OnTimeAppointmentsDbContext(DbContextOptions<OnTimeAppointmentsDbContext> options) 
             :base(options)
         {
