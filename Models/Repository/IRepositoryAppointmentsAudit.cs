@@ -2,6 +2,8 @@
 {
     public interface IRepositoryAppointmentsAudit
     {
-        IEnumerable<AppointmentAudit> GetAll(); 
+        IQueryable<AppointmentAudit> AppointmentsAudit { get; }
+        IEnumerable<AppointmentAudit> GetAll();
+        IAsyncEnumerable<AppointmentAudit> GetAllAsync();
     }
 }

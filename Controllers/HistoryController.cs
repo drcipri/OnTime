@@ -1,4 +1,6 @@
-﻿using OnTime.Models.Repository;
+﻿using OnTime.Models;
+using OnTime.Models.Repository;
+using System.Linq;
 
 namespace OnTime.Controllers
 {
@@ -10,9 +12,16 @@ namespace OnTime.Controllers
             _repository = repository;
         }
 
-        public IActionResult AppointmentsHistory()
+        public async Task<IActionResult> AppointmentsHistory()
         {
-            return View(_repository.GetAll().OrderByDescending(x => x.Id).AsEnumerable());
+            List<AppointmentAudit> records = new List<AppointmentAudit>();
+            //return results in sequence
+            await foreach(var r in _repository.GetAllAsync())
+            {
+                records.Add(r);
+            }
+            return View(records.OrderByDescending(x => x.Id));
         }
+       
     }
 }
