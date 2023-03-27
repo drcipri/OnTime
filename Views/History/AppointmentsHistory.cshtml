@@ -1,5 +1,13 @@
 ﻿@model IEnumerable<AppointmentAudit>
 
+<div class="search-bar">
+    <form asp-controller="History" asp-action="SearchHistory"  class="search_input-group" method="get">
+        <input class="search-input" type="text" placeholder="Search" name="searchCriteria"/>
+        <button class="btn search__btn" type="submit">
+            <i class="fa-brands fa-searchengin search__icon"></i>
+        </button>
+    </form>
+</div>
 <div class="table-container">
     <table>
         <thead>
@@ -17,7 +25,7 @@
             </tr>
         </thead>
         <tbody>
-             @foreach(var record in Model)
+             @foreach(var record in Model ?? Enumerable.Empty<AppointmentAudit>())
             {
                 <tr>
                     <td>@record.Id</td>
