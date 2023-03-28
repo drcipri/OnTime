@@ -9,7 +9,7 @@
             _context = context;
         }
         /// <summary>
-        /// Get all Classification Objects
+        /// Get all Classification Objects in ascending order.
         /// </summary>
         /// <returns></returns>
         public IEnumerable<Classification> GetAll()

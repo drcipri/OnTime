@@ -17,20 +17,21 @@ namespace OnTime.Controllers
         }
         public IActionResult Index(int appointmentsPage = 1, string? classification = null)
         {
+            var getAppointments = _repository.FilterAppointments(String.IsNullOrEmpty(classification) ? ClassificationTypes.Awaiting : classification);
             return View(new AppointmentsListViewModel
             {
-                Appointments = _repository.FilterAppointments(String.IsNullOrEmpty(classification) ? ClassificationTypes.Awaiting : classification)
-                                                .OrderByDescending(c => c.PostDateTime) //get data in desceding order by posted date. This way the last one posted will be the first to show
-                                                .Skip((appointmentsPage - 1) * PageSize)
-                                                .Take(PageSize)
-                                                .ToList(),
+                Appointments = getAppointments.OrderByDescending(c => c.PostDateTime) //get data in desceding order by posted date. This way the last one posted will be the first to show
+                                               .Skip((appointmentsPage - 1) * PageSize)
+                                               .Take(PageSize)
+                                               .ToList(),
+
                 PaginationInfo = new PaginationInfo
                 {
                     CurrentPage = appointmentsPage,
                     ItemsPerPage = PageSize,
-                    TotalItems = _repository.FilterAppointments(String.IsNullOrEmpty(classification) ? ClassificationTypes.Awaiting : classification).Count()
+                    TotalItems = getAppointments.Count()
                 },
-                Classification = String.IsNullOrEmpty(classification) ? ClassificationTypes.Awaiting : classification 
+                Classification = String.IsNullOrEmpty(classification) ? ClassificationTypes.Awaiting : classification
             });
         }
     }

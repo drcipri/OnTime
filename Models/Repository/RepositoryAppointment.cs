@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OnTime.Models.DatabaseConfigs;
+using OnTime.ViewModels;
 using System.Reflection.Metadata.Ecma335;
 
 namespace OnTime.Models.Repository
@@ -45,11 +46,15 @@ namespace OnTime.Models.Repository
         /// <param name="classificationName">Classification Name</param>
         public void MarkAppointment(int id, string classificationName)
         {
-            Appointment? apToRemove = _context.Appointments.FirstOrDefault(c => c.Id == id);
-            if(apToRemove != null)
+            Appointment? apToMark = _context.Appointments.FirstOrDefault(c => c.Id == id);
+            if(apToMark != null)
             {
-                apToRemove.ClassificationId = _context.Classifications.First(c => c.Name == classificationName).Id;
-                _context.SaveChanges();
+                int? classId = _context.Classifications.FirstOrDefault(c => c.Name == classificationName)?.Id;
+                if (classId != null)
+                {
+                    apToMark.ClassificationId = classId.Value;
+                    _context.SaveChanges();
+                }
             }
         }
 
@@ -64,10 +69,12 @@ namespace OnTime.Models.Repository
         /// <returns>IEnumerable of type Appointment</returns>
         public IEnumerable<Appointment> FilterAppointments(string? classification)
         {
-            return _context.Appointments.Where(c => c.Classification == null || c.Classification.Name == classification)
-                                                  .Include(c => c.Classification)
-                                                  .OrderBy(c => c.Id);
+            return _context.Appointments.Include(c => c.Classification)
+                                        .Where(c => c.Classification == null || c.Classification.Name == classification)
+                                        .OrderBy(c => c.Id).AsEnumerable();
         }
+
+   
 
         
     }

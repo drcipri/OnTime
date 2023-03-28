@@ -4,7 +4,7 @@
 <div class="container">
     @if(Model.Appointments.Count() != 0)
     {
-        @foreach (var a in Model.Appointments)
+        @foreach (var a in Model.Appointments ?? Enumerable.Empty<Appointment>())
         {
             <partial name="AppointmentSummary" model="a" />
             //render the Partial view from View/Shared folder
