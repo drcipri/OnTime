@@ -1,8 +1,8 @@
-﻿@model IEnumerable<AppointmentAudit>
+﻿@model HistoryListViewModel
 
 <div class="search-bar">
     <form asp-controller="History" asp-action="SearchHistory"  class="search_input-group" method="get">
-        <input class="search-input" type="text" placeholder="Search" name="searchCriteria"/>
+        <input class="search-input" type="text" value="@(Model.SearchRequest == true ? Model.SearchCriteria : "")" placeholder="Search" name="searchCriteria"/>
         <button class="btn search__btn" type="submit">
             <i class="fa-brands fa-searchengin search__icon"></i>
         </button>
@@ -25,7 +25,7 @@
             </tr>
         </thead>
         <tbody>
-             @foreach(var record in Model ?? Enumerable.Empty<AppointmentAudit>())
+             @foreach(var record in Model?.AppointmentAudits ?? Enumerable.Empty<AppointmentAudit>())
             {
                 <tr>
                     <td>@record.Id</td>

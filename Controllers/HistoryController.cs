@@ -23,7 +23,10 @@ namespace OnTime.Controllers
             {
                 records.Add(r);
             }
-            return View(records.OrderByDescending(x => x.ActionDate));
+            return View(new HistoryListViewModel
+            {
+                AppointmentAudits = records.OrderByDescending(x => x.ActionDate)
+            });
         }
 
         [HttpGet]
@@ -50,7 +53,12 @@ namespace OnTime.Controllers
                 {
                     recordsFound.Add(r);
                 }
-                return View("AppointmentsHistory", recordsFound.OrderByDescending(x => x.ActionDate));
+                return View("AppointmentsHistory", new HistoryListViewModel
+                {
+                    AppointmentAudits = recordsFound.OrderByDescending(x => x.ActionDate),
+                    SearchRequest = true,
+                    SearchCriteria = searchCriteria
+                });
             }
             return RedirectToRoute("History");
 
