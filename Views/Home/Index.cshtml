@@ -1,23 +1,43 @@
 ﻿@model AppointmentsListViewModel
 
 
+
+
+<div class="search-bar">
+    <form asp-controller="Home" asp-action="SearchIndex" class="search_input-group" method="get">
+    <input type="hidden" name="classification" value="@Model.Classification"/>
+    <input class="search-input" type="text" value="@(Model?.SearchRequest == true ? Model.SearchCriteria : "")" placeholder="Search" name="searchCriteria" />
+    <button class="btn search__btn" type="submit">
+        <i class="fa-brands fa-searchengin search__icon"></i>
+    </button>
+    <input type="hidden" name="appointmentsPage" value="1" />
+</form>
+</div>
 <div class="container">
-    @if(Model.Appointments.Count() != 0)
+    @if(Model?.Appointments.Count() != 0)
     {
-        @foreach (var a in Model.Appointments ?? Enumerable.Empty<Appointment>())
+        @foreach (var a in Model?.Appointments ?? Enumerable.Empty<Appointment>())
         {
             <partial name="AppointmentSummary" model="a" />
             //render the Partial view from View/Shared folder
         }
-        <div class="pagination-container" pagination-model="@Model?.PaginationInfo" page-action="Index"
-             page-classification="@Model?.Classification"
+        <div class="pagination-container" pagination-model="@Model?.PaginationInfo" page-action="@(Model?.SearchRequest == true ? "SearchIndex" : "Index")"
+             page-url-classification="@Model?.Classification!"
+             page-url-searchCriteria="@(Model?.SearchRequest == true ? Model.SearchCriteria : "")"
              style-a="pagination__links"
              page-selected="pagination__page-selected">
         </div>
     }
     else
     {
+        @if(Model?.SearchRequest != true)
+        {
          <h2>You don't have any @Model?.Classification appointments/tasks :( </h2>
+        }
+        else
+        {
+            <h2>We couln't find any task/appointments!</h2>
+        }
     }
 </div>
 

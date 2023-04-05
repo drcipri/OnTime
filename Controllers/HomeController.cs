@@ -15,6 +15,7 @@ namespace OnTime.Controllers
         {
             _repository = repository;
         }
+        [HttpGet]
         public IActionResult Index(int appointmentsPage = 1, string? classification = null)
         {
             var getAppointments = _repository.FilterAppointments(String.IsNullOrEmpty(classification) ? ClassificationTypes.Awaiting : classification);
@@ -33,6 +34,46 @@ namespace OnTime.Controllers
                 },
                 Classification = String.IsNullOrEmpty(classification) ? ClassificationTypes.Awaiting : classification
             });
+        }
+       
+        [HttpGet]
+        public async Task<IActionResult> SearchIndex(string? classification = null, string? searchCriteria = null, int appointmentsPage = 1) 
+        { 
+            if(!string.IsNullOrEmpty(searchCriteria) && !string.IsNullOrEmpty(classification))
+            {
+                var criteria = new AppointmentsSearchCriteria
+                {
+                    Objective = searchCriteria,
+                    Reason = searchCriteria,
+                    AdditionalInfo = searchCriteria,
+                    Classification = searchCriteria
+                };
+
+                List<Appointment> appointments = new List<Appointment>();
+
+                await foreach(var r in _repository.SearchAppointmentsAsync(criteria,classification))
+                {
+                    appointments.Add(r);    
+                }
+
+                return View("Index", new AppointmentsListViewModel
+                {
+                    Appointments = appointments.OrderByDescending(c => c.PostDateTime)
+                                               .Skip((appointmentsPage - 1) * PageSize)
+                                               .Take(PageSize)
+                                               .ToList(),
+                    PaginationInfo = new PaginationInfo
+                    {
+                        CurrentPage = appointmentsPage,
+                        ItemsPerPage = PageSize,
+                        TotalItems = appointments.Count()
+                    },
+                    Classification = classification,
+                    SearchRequest = true,
+                    SearchCriteria = searchCriteria
+                });
+            }
+            return RedirectToRoute(new { controller = "Home", action = "Index" });
         }
     }
 }

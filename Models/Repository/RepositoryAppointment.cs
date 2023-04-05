@@ -74,8 +74,23 @@ namespace OnTime.Models.Repository
                                         .OrderBy(c => c.Id).AsEnumerable();
         }
 
-   
+        public async IAsyncEnumerable<Appointment> SearchAppointmentsAsync(AppointmentsSearchCriteria searchCriteria, string classification)
+        {
+            var results = _context.Appointments.Include(c => c.Classification)
+                                                 .Where(x => x.Classification!.Name == classification)
+                                                 .Where(x => x.Objective.Contains(searchCriteria.Objective) ||
+                                                              x.Reason!.Contains(searchCriteria.Reason) ||
+                                                              x.AdditionalInfo!.Contains(searchCriteria.AdditionalInfo))
+                                                 .OrderBy(x => x.Id)
+                                                 .AsAsyncEnumerable();
+            await foreach(var result in results)
+            {
+                yield return result;
+            }
+        }
 
-        
+
+
+
     }
 }

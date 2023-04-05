@@ -21,7 +21,8 @@ namespace OnTime.Infrastructure
         public ViewContext? ViewContext { get; set; }
         public PaginationInfo? PaginationModel { get; set; }  
         public string? PageAction { get; set; }
-        public string? PageClassification { get; set; } //with this property we can paginate through filtered appointments
+        [HtmlAttributeName(DictionaryAttributePrefix = "page-url-")]
+        public Dictionary<string, object> PageUrlValues { get; set; } = new Dictionary<string, object>();
 
         //style properties
         public string StyleA { get; set; }  = string.Empty;
@@ -40,7 +41,8 @@ namespace OnTime.Infrastructure
                 for(int i = 1; i <= PaginationModel.TotalPages; i++)
                 {
                     TagBuilder tag = new TagBuilder("a");
-                    tag.Attributes["href"] = urlHelper.Action(PageAction, new {appointmentsPage = i, classification = PageClassification});
+                    PageUrlValues["appointmentsPage"] = i;
+                    tag.Attributes["href"] = urlHelper.Action(PageAction, PageUrlValues);
 
                     tag.AddCssClass(StyleA);
                     tag.AddCssClass(i == PaginationModel.CurrentPage ? PageSelected : "");

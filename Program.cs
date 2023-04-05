@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using OnTime.Controllers;
 using OnTime.Models;
 using OnTime.Models.Repository;
 using System;
@@ -26,8 +27,9 @@ app.MapRazorPages();// map razor pages
 
 app.MapControllerRoute("history", "History", new {Controller = "History", action = "AppointmentsHistory" });
 app.MapControllerRoute( "historySearch","History/Search/{searchCriteria?}", new { controller = "History", action = "SearchHistory" });
-app.MapControllerRoute("classification", "{controller}/{classification}", new {action = "Index", appointmentsPage = 1 });
-app.MapControllerRoute("pagination","{controller}/{classification}/Page{appointmentsPage:int}", new { action = "Index"}); // :int -> is a constraint 
+app.MapControllerRoute("indexSearch", "{classification}/Search/{searchCriteria}/Page{appointmentsPage:int}", new {controller = "Home", action = "SearchIndex" });
+app.MapControllerRoute("classification", "{classification}", new {controller = "Home", action = "Index", appointmentsPage = 1 });
+app.MapControllerRoute("pagination","{classification}/Page{appointmentsPage:int}", new {controller = "Home", action = "Index"}); // :int -> is a constraint 
 app.MapDefaultControllerRoute(); //maping the home page
 
 SeedData.PopulateDatabase(app); //populate the database with data
