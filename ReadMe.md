@@ -1,12 +1,7 @@
 ###  DESCRIPTION
 The name of the project is 'OnTime'. This is an appointment-schedule app and the main goal is to store appointments or taks and get you notified.
-- ![ProjectImage1](https://github.com/drcipri/OnTime/tree/main/wwwroot/style/ProjectImages/ProjectImage1.png)
-![ProjectImage2](https://github.com/drcipri/OnTime/tree/main/wwwroot/style/ProjectImages/ProjectImage2.png)
-![ProjectImage3](https://github.com/drcipri/OnTime/tree/main/wwwroot/style/ProjectImages/ProjectImage3.png)
-![ProjectImage4](https://github.com/drcipri/OnTime/tree/main/wwwroot/style/ProjectImages/ProjectImage4.png)
-![ProjectImage5](https://github.com/drcipri/OnTime/tree/main/wwwroot/style/ProjectImages/ProjectImage5.png)
-![ProjectImage6](https://github.com/drcipri/OnTime/tree/main/wwwroot/style/ProjectImages/ProjectImage6.png)
-![ProjectImage7](https://github.com/drcipri/OnTime/tree/main/wwwroot/style/ProjectImages/ProjectImage7.png)
+- [Project Images](https://drive.google.com/drive/folders/16RXc5ArKTV2vKwvBJW9kBuIuxpz5MSkl?usp=share_link)
+
 
 ###  IMPORTANT NOTE
   -	I am currently studying ASP.NET and this project is not finished yet. The project still need improvements and i plan to add a lot of new features.
