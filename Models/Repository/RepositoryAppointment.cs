@@ -67,11 +67,17 @@ namespace OnTime.Models.Repository
         /// </summary>
         /// <param name="classification"></param>
         /// <returns>IEnumerable of type Appointment</returns>
-        public IEnumerable<Appointment> FilterAppointments(string? classification)
+        public async IAsyncEnumerable<Appointment> FilterAppointmentsAsync(string? classification)
         {
-            return _context.Appointments.Include(c => c.Classification)
-                                        .Where(c => c.Classification == null || c.Classification.Name == classification)
-                                        .OrderBy(c => c.Id).AsEnumerable();
+           var results =  _context.Appointments.Include(c => c.Classification)
+                                               .Where(c => c.Classification == null || c.Classification.Name == classification)
+                                               .OrderBy(c => c.Id)
+                                               .AsAsyncEnumerable();
+
+            await foreach(var result in results)
+            {
+                yield return result;
+            }
         }
 
         public async IAsyncEnumerable<Appointment> SearchAppointmentsAsync(AppointmentsSearchCriteria searchCriteria, string classification)

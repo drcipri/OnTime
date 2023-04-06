@@ -16,9 +16,13 @@ namespace OnTime.Controllers
             _repository = repository;
         }
         [HttpGet]
-        public IActionResult Index(int appointmentsPage = 1, string? classification = null)
+        public async  Task<IActionResult> Index(int appointmentsPage = 1, string? classification = null)
         {
-            var getAppointments = _repository.FilterAppointments(String.IsNullOrEmpty(classification) ? ClassificationTypes.Awaiting : classification);
+            var getAppointments = new List<Appointment>();
+            await foreach(var item in _repository.FilterAppointmentsAsync(String.IsNullOrEmpty(classification) ? ClassificationTypes.Awaiting : classification))
+            {
+                getAppointments.Add(item);
+            }
             return View(new AppointmentsListViewModel
             {
                 Appointments = getAppointments.OrderByDescending(c => c.PostDateTime) //get data in desceding order by posted date. This way the last one posted will be the first to show
