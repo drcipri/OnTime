@@ -20,15 +20,21 @@ namespace OnTime.Models.Repository
             _context.Add(appointment);
             _context.SaveChanges();
         }
-        public void RemoveById(int id)
+
+        /// <summary>
+        /// If found, removes the appointment by id and returns true , otherwise false.
+        /// </summary>
+        /// <param name="id"></param>
+        public bool RemoveById(int id)
         {
             Appointment? apToRemove = _context.Appointments.FirstOrDefault(c => c.Id == id);
             if (apToRemove != null)
             {
                 _context.Remove(apToRemove);
                 _context.SaveChanges();
+                return true;
             }
-
+            return false;
         }
         public void UpdateAppointment(Appointment appointment)
         {
@@ -44,18 +50,20 @@ namespace OnTime.Models.Repository
         /// </summary>
         /// <param name="id">Appointment id</param>
         /// <param name="classificationName">Classification Name</param>
-        public void MarkAppointment(int id, string classificationName)
+        public bool MarkAppointment(int id, string classificationName)
         {
             Appointment? apToMark = _context.Appointments.FirstOrDefault(c => c.Id == id);
             if(apToMark != null)
             {
-                int? classId = _context.Classifications.FirstOrDefault(c => c.Name == classificationName)?.Id;
-                if (classId != null)
+                Classification? classification = _context.Classifications.FirstOrDefault(c => c.Name == classificationName);
+                if (classification != null)
                 {
-                    apToMark.ClassificationId = classId.Value;
+                    apToMark.ClassificationId = classification.Id;
                     _context.SaveChanges();
+                    return true;
                 }
             }
+            return false;
         }
 
 

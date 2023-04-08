@@ -5,6 +5,7 @@ namespace OnTime.Models
 {
     public class Appointment
     {
+        //Bind never because the ID will be set by the Database.
         [BindNever]
         public int Id { get; set; }
         [Required(ErrorMessage = "Please enter appointment/task objective")]

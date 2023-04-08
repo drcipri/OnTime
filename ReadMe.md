@@ -5,8 +5,7 @@ The name of the project is 'OnTime'. This is an appointment-schedule app and the
 
 ###  IMPORTANT NOTE
   -	I am currently studying ASP.NET and this project is not finished yet. The project still need improvements and i plan to add a lot of new features.
-  - The UNIT TESTS for this project can be found [HERE](https://github.com/drcipri/OnTime.Tests). However UNIT TESTS are currently incomplete. As i said before, i am currently studying
-  ASP.NET , and to properly test some of the features of this project i need a deep knowledge of what is going on behind the scenes. 
+  - The UNIT TESTS for this project can be found [HERE](https://github.com/drcipri/OnTime.Tests).
   - I am open to any feedback, bad or good because this is what will make me a better developer.
   - I will explain in detail each class and all the features i have currently added.I will not explain ASP.NET files.
  
